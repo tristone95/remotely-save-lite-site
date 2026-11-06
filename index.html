@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Remotely Save Lite：面向 Obsidian 的独立修改版同步插件，支持个人 OneDrive 和 Google Drive。">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="color-scheme" content="light">
+    <title>Remotely Save Lite · Obsidian 云同步</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header">
+      <nav class="shell navigation" aria-label="主导航">
+        <a class="brand" href="./index.html">Remotely Save <span>Lite</span></a>
+        <div class="nav-links">
+          <a href="./index.html" aria-current="page">首页</a>
+          <a href="./privacy.html">隐私政策</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">为你的笔记，连接你的云盘</p>
+        <h1 id="hero-title">让 Obsidian 笔记<br>在设备之间保持同步。</h1>
+        <p class="hero-description">
+          Remotely Save Lite 是基于 Remotely Save 的独立修改版 Obsidian
+          插件，专注于个人 OneDrive 和 Google Drive。无需额外的插件账号或
+          Pro 订阅；连接云盘仍需你本人登录并授权。
+        </p>
+        <div class="actions">
+          <a class="button" href="#getting-started">了解如何使用 <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="./privacy.html">查看数据如何处理</a>
+        </div>
+        <p class="caption">独立修改版 · 非 Obsidian、Microsoft 或 Google 官方产品</p>
+      </section>
+
+      <section class="section" aria-labelledby="features-title">
+        <p class="eyebrow">保留必要能力</p>
+        <h2 id="features-title">同步由你设置，数据去向清晰。</h2>
+        <div class="cards">
+          <article class="card">
+            <p class="card-number">01 / CLOUD</p>
+            <h3>两种云盘</h3>
+            <p>支持个人 OneDrive 应用文件夹模式、完整目录模式和 Google Drive。选择你已拥有的云账号。</p>
+          </article>
+          <article class="card">
+            <p class="card-number">02 / CONTROL</p>
+            <h3>按你的节奏同步</h3>
+            <p>提供手动同步、定时同步、路径过滤和模拟运行。自动同步需要 Obsidian 保持运行。</p>
+          </article>
+          <article class="card">
+            <p class="card-number">03 / PRIVACY</p>
+            <h3>可选端到端加密</h3>
+            <p>启用并设置密码后，可加密同步文件。加密不是默认承诺，目录结构、流量和部分元数据仍可能可见。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="permissions" aria-labelledby="permissions-title">
+        <div>
+          <p class="eyebrow">为什么需要云盘授权</p>
+          <h2 id="permissions-title">仅为你启用的同步功能访问数据。</h2>
+          <p>插件需要列出文件、上传修改、下载远端内容，并根据同步设置更新或删除文件。授权本身不会启动同步。</p>
+        </div>
+        <div class="detail-panel">
+          <h3>Google Drive</h3>
+          <p>使用 <code>drive.file</code> 范围，访问由应用创建或明确授权给应用的文件，而非不受限制地读取整个网盘。</p>
+          <h3>个人 OneDrive</h3>
+          <p>应用文件夹模式使用 <code>Files.ReadWrite.AppFolder</code>；完整目录模式使用更广的 <code>Files.ReadWrite</code>，另申请基本用户信息和离线访问权限。</p>
+          <p><a href="./privacy.html#cloud-data">阅读完整的数据用途说明 →</a></p>
+        </div>
+      </section>
+
+      <section class="section" id="getting-started" aria-labelledby="start-title">
+        <p class="eyebrow">开始之前，先备份</p>
+        <h2 id="start-title">从一个空白测试仓库开始。</h2>
+        <ol class="steps">
+          <li><strong>安装本地构建。</strong>在 Obsidian 中安装此修改版插件；上游社区插件包不包含本版修改。本网站不提供授权令牌提交或插件下载服务。</li>
+          <li><strong>连接自己的云盘。</strong>配置自己的 OAuth 应用凭据并构建插件。OneDrive 通过浏览器回到 Obsidian；Google Drive 当前通过官方 OAuth Playground 获取刷新令牌，再填入本地插件。</li>
+          <li><strong>确认同步范围。</strong>使用专门的远端目录，检查加密、过滤和删除设置。Google Drive 的目录建议由插件创建。</li>
+          <li><strong>先模拟，再同步。</strong>检查模拟运行计划后手动同步少量测试文件。确认结果后再开启自动同步。</li>
+        </ol>
+        <aside class="notice">
+          <strong>同步不是备份。</strong>错误修改或删除可能传播到其他设备。请保留独立备份；
+          自动合并也不保证符合原意。云盘容量、调用限制和令牌有效期由服务商及应用配置共同决定。
+        </aside>
+      </section>
+
+      <section class="section compact" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">联系与项目来源</h2>
+        <p>如有本修改版的使用或隐私问题，请通过 Google OAuth 授权页面列出的“用户支持邮箱”联系此应用的维护者。不要发送密码、客户端密钥、刷新令牌或完整的 <code>data.json</code>。</p>
+        <p>本修改版基于 <a href="https://github.com/remotely-save/remotely-save" rel="noreferrer">Remotely Save 开源项目</a>，原作者及贡献者的归属和适用许可保留。上游作者不负责本修改版的运营或支持。</p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span>Remotely Save Lite · 独立修改版</span>
+        <a href="./privacy.html">隐私政策</a>
+      </div>
+    </footer>
+  </body>
+</html>

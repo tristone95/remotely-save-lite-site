@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Remotely Save Lite 隐私政策：云盘权限、令牌、本地数据存储、第三方服务和撤销授权。">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="color-scheme" content="light">
+    <title>隐私政策 · Remotely Save Lite</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header">
+      <nav class="shell navigation" aria-label="主导航">
+        <a class="brand" href="./index.html">Remotely Save <span>Lite</span></a>
+        <div class="nav-links">
+          <a href="./index.html">首页</a>
+          <a href="./privacy.html" aria-current="page">隐私政策</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="shell policy">
+      <header class="policy-header">
+        <p class="eyebrow">PRIVACY / 隐私与数据</p>
+        <h1>隐私政策</h1>
+        <p class="caption">生效及最后更新日期：2026 年 11 月 6 日</p>
+        <p>本政策适用于本网站介绍的 Remotely Save Lite 独立修改版及本静态网站，不代表上游 Remotely Save、Obsidian、Microsoft 或 Google 的隐私政策。</p>
+      </header>
+      <nav class="policy-toc" aria-label="隐私政策目录">
+        <a href="#scope">适用范围</a>
+        <a href="#cloud-data">处理的数据</a>
+        <a href="#storage">存储与安全</a>
+        <a href="#sharing">共享与第三方</a>
+        <a href="#delete">撤销与删除</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <section id="scope">
+        <h2>1. 应用及本网站的作用</h2>
+        <p>Remotely Save Lite 是在你的设备上的 Obsidian 内运行的同步插件，用于在你选择的本地仓库与个人 OneDrive 或 Google Drive 之间同步文件。无需单独注册插件账号或购买本插件的 Pro 权限；云服务自己的账号、容量和使用条款仍适用。</p>
+        <p>本网站仅提供应用介绍及隐私说明，不提供登录、令牌收集或文件上传表单，不参与网盘同步。当前实现不包含由本修改版维护者运营的笔记同步中转服务器。</p>
+      </section>
+
+      <section id="cloud-data">
+        <h2>2. 插件处理哪些数据，以及为什么</h2>
+        <h3>你选择同步的文件</h3>
+        <p>插件会按同步目录和过滤规则处理文件内容、文件名、路径、大小、修改时间、远端文件标识和相关同步状态。用途包括列出和比较文件、上传、下载、创建目录、处理冲突，以及按设置执行删除。开启配置目录或书签同步后，这些内容也可能进入同步范围。</p>
+        <h3>Google Drive 数据和权限</h3>
+        <p>当前使用 <code>https://www.googleapis.com/auth/drive.file</code> 权限。插件访问由该应用创建或明确授权给该应用的文件，使用文件内容及元数据完成你请求的同步，不以此权限不受限制地读取整个 Drive。插件不请求 Gmail、联系人或日历访问权限。</p>
+        <p>Drive 数据仅用于提供或改进用户可见的同步功能，不用于广告、出售、信用评估或训练通用人工智能／机器学习模型。本修改版维护者不会仅因你使用插件而取得你的网盘内容；若你主动提交日志、截图或文件用于支持，提交内容可能被接收方看到。</p>
+        <h3>个人 OneDrive 数据和权限</h3>
+        <p>应用文件夹模式申请 <code>Files.ReadWrite.AppFolder</code>；完整目录模式申请 <code>Files.ReadWrite</code>。插件另使用 <code>User.Read</code> 获取基本用户资料以识别连接账号，并申请 <code>offline_access</code> 以便刷新访问令牌。完整目录授权范围更广，即使你只选定一个同步子目录，也应谨慎评估授权。</p>
+        <h3>授权凭据</h3>
+        <p>插件处理云服务颁发的 Access token、Refresh token 和有效期等信息，用于访问 API 及续期。你在 Google 或 Microsoft 的授权页面输入账号密码，而不是在本网站输入。当前 Google 连接流程还通过 Google 官方 OAuth Playground 兑换令牌，再由你将 Refresh token 粘贴到本地插件。</p>
+        <h3>本地历史和诊断记录</h3>
+        <p>为避免误删、比较变更及辅助排错，插件可能在设备上保存同步计划、文件元数据、状态和诊断记录。启用智能冲突处理时，还可能保存部分文件内容历史以用于合并。日志和导出的设置可能包含路径、账号资料或其他敏感信息，分享前应检查并脱敏。</p>
+      </section>
+
+      <section id="storage">
+        <h2>3. 数据存放位置、保留与安全</h2>
+        <ul>
+          <li><strong>设备本地：</strong>仓库文件、插件设置、OAuth 令牌、同步数据库及可能保存的加密密码位于你的设备。配置通常保存在插件的 <code>data.json</code> 中；同步数据库保存在 Obsidian 的本地应用存储中。</li>
+          <li><strong>你选择的云盘：</strong>同步文件及相关元数据保存在你授权的 Google Drive 或 OneDrive。删除、回收站和保留行为受同步设置及云服务政策影响。</li>
+          <li><strong>保留时间：</strong>文件通常保留到你主动删除或同步规则执行删除；本地设置和数据库可能在停用插件后继续存在。诊断和历史数据的清理行为依本地设置和代码实现而定，不承诺统一的自动删除期限。</li>
+        </ul>
+        <p>插件通过 HTTPS 与云服务通信。可选端到端加密需由你启用并妥善保存密码；它不能隐藏所有元数据，也不能保护已经被其他软件读取的本地明文。配置文件混淆不是加密，其他有权访问设备或仓库的程序可能读取设置。</p>
+        <p>构建时使用的 OAuth 客户端密钥可能被包含在客户端插件包内，不能视作保密的服务器密钥。不要公开发布个人凭据文件、带有个人应用凭据的构建包、Refresh token 或 <code>data.json</code>。没有任何存储或传输措施能保证绝对安全。</p>
+        <p>自动刷新并不保证授权永久有效。Google／Microsoft 可以按其政策使令牌失效；本政策对应版本还包含 Google 约 59 天、OneDrive 约 80 天的本地主动重新授权检查。后续若调整相关实现，应同步更新本政策。</p>
+      </section>
+
+      <section id="sharing">
+        <h2>4. 第三方、数据共享及网站访问</h2>
+        <p>插件为执行授权和同步而与 Google 或 Microsoft 的服务通信；Google OAuth Playground 是当前 Google 授权过程的一部分。服务商对收到的数据按各自政策处理。只有在你配置相应云服务并发起相关操作时，插件才会与其进行对应的数据交换。</p>
+        <p>本修改版不包含向维护者上传笔记的分析服务，不为广告目的出售或共享 Google 用户数据，也不将其提交给通用 AI 服务。本声明不涵盖你自行安装的其他 Obsidian 插件、修改过的构建或额外接入的服务。</p>
+        <p>本静态网站不加载第三方脚本、广告或分析工具，不由页面代码设置 Cookie 或读取浏览器本地存储。网站托管服务仍可能按其配置记录 IP 地址、请求时间、浏览器信息及访问路径等基础访问日志；外部链接仅在你访问时连接对应服务。部署者如启用额外分析或收集功能，应在启用前更新本政策。</p>
+        <p>
+          第三方政策：
+          <a href="https://policies.google.com/privacy" rel="noreferrer">Google 隐私政策</a>、
+          <a href="https://privacy.microsoft.com/privacystatement" rel="noreferrer">Microsoft 隐私声明</a>。
+        </p>
+        <p lang="en">Remotely Save Lite's use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+      </section>
+
+      <section id="delete">
+        <h2>5. 撤销授权、停止使用及删除数据</h2>
+        <ol>
+          <li><strong>停止同步：</strong>关闭自动同步并停用插件，避免在处理数据期间继续传播变更。</li>
+          <li><strong>撤销 Google 授权：</strong>进入 <a href="https://myaccount.google.com/connections" rel="noreferrer">Google 账号的第三方连接管理</a>，找到此应用并移除连接。插件中的清理本地凭据操作不能代替核实云账号上的授权是否已撤销。</li>
+          <li><strong>撤销 Microsoft 授权：</strong>进入 <a href="https://account.live.com/consent/Manage" rel="noreferrer">Microsoft 账号应用权限管理</a>，找到此应用并删除权限。</li>
+          <li><strong>清理本地数据：</strong>使用插件提供的凭据／数据库清理功能（如可用），或在备份后删除插件设置及相关本地应用数据。仅卸载或停用插件不保证清除所有历史数据库、日志和导出文件。</li>
+          <li><strong>清理云端数据：</strong>如需删除同步副本，请在停止同步后自行删除对应的网盘目录，并按需要处理云端回收站、版本历史及其他设备副本。撤销授权不会自动删除已同步文件。</li>
+        </ol>
+        <p>请妥善备份。删除数据、撤销权限和忘记加密密码可能造成不可恢复的后果。请求维护者支持时，不要提交账号密码或令牌。</p>
+      </section>
+
+      <section id="contact">
+        <h2>6. 联系方式与政策更新</h2>
+        <p>本修改版应用的维护者及用户支持邮箱，以你授权时 Google OAuth 同意页面显示的信息为准。如需提出隐私问题、报告安全问题或询问主动提供给维护者的支持资料如何处理，请联系该支持邮箱。本网站没有收集表单。</p>
+        <p>本政策随插件能力、授权流程或部署方式调整而更新，页面顶部标明最后更新日期。发布者应确保此政策描述与实际提供的构建及网站行为一致；本政策不替代 Google 的应用审核或合规要求。</p>
+        <p><a href="./index.html">返回 Remotely Save Lite 首页 →</a></p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span>Remotely Save Lite · 独立修改版</span>
+        <a href="./index.html">首页</a>
+      </div>
+    </footer>
+  </body>
+</html>
